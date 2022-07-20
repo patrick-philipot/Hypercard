@@ -1,0 +1,83 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>HyperCard Menus</title>
+</head>
+
+</p><h2>HyperCard Menus</h2>
+
+<img src="HyperCard%20Menus_files/menu1.gif"><p>
+</p><p>
+Most stacks you will see come with a standard menu bar. HyperCard users expect
+to be able to use many of the items in the menus to carry out functions like
+copying cards, printing and navigation through the stack.</p><p>
+</p><h3>Hiding and Showing the menu bar</h3>
+Unless it has been deleted in the stack's scripts you can show a hidden menu
+bar by pressing &lt;Command-M&gt;. The same keyboard combination will also hide
+a menu bar that is showing. <p>
+</p><h3>doMenu</h3>
+This command can be used in scripts to activate any item in the menu bar<p>
+<img src="HyperCard%20Menus_files/menu2.gif">
+   
+<img src="HyperCard%20Menus_files/menu3.gif"></p><p>
+<img src="HyperCard%20Menus_files/menu4.gif">
+    
+<img src="HyperCard%20Menus_files/menu5.gif"></p><p>
+
+</p><h3>Customising the menu bar</h3>
+
+It's very useful to be able to change the menu bar for particular stacks.
+HyperCard allows many possibilities to:<p>
+</p><h3>Change the name of any menu item</h3>
+<img src="HyperCard%20Menus_files/menu6.gif"><p>
+<img src="HyperCard%20Menus_files/menu7.gif"></p><p>
+</p><h3>Enable or disable any menu or menu item</h3>
+<img src="HyperCard%20Menus_files/menu8.gif"><p>
+<img src="HyperCard%20Menus_files/menu9.gif"></p><p>
+<img src="HyperCard%20Menus_files/menu10.gif"></p><p>
+</p><h3>Add or delete menu items</h3>
+<img src="HyperCard%20Menus_files/menu11.gif"><p>
+<img src="HyperCard%20Menus_files/menu12.gif"></p><p>
+</p><h3>Create new menus</h3>
+Copy and paste this script into a new button in a HyperCard stack. The menuMsg
+defines what each menu item does<p> 
+( This script is from Dan Shafer's The Complete Book of HyperTalk 2 )</p><p>
+
+</p><form>
+<textarea rows="13" cols="70" wrap="off">on mouseUp
+  if there is a menu "testing" then
+    answer "There is already a menu called Testing " with OK
+    exit mouseUp
+  end if
+  create menu "Testing"
+  put "Once" after menu "Testing" with menuMsg  "beep 1"
+  put "Twice" after menu "Testing" with menuMsg  "beep 2"
+  put "Three Times" after menu "Testing" with menuMsg  "beep 3"
+  put "Four Times" after menu "Testing" with menuMsg  "beep 4"
+end mouseUp
+</textarea>
+</form><p>
+
+When you click on the button you will see a new menu "Testing" at the end of
+your menu bar. Try it out.</p><p>
+</p><p>
+<img src="HyperCard%20Menus_files/menu13.gif"></p><p>
+</p><p>
+</p><h3>Delete a menu</h3>
+<p>
+<img src="HyperCard%20Menus_files/menu14.gif"></p><p>
+
+</p><h3>Resetting the menu bar</h3>
+
+To return to the standard menu bar simply type &lt;reset menuBar&gt;. If you
+have customised a  menu for a particular stack it makes sense to reset the menu
+when the user closes that stack. Put the following script into your stack
+script<p>
+
+</p><form>
+<textarea rows="5" cols="40" wrap="off">on closeStack
+  reset menuBar
+end closeStack
+</textarea>
+</form><p>
+
+</body></html>

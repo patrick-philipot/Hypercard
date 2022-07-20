@@ -1,0 +1,38 @@
+<pre>
+on ajouteCarte num,title,lu
+put title && num && lu
+end ajouteCarte
+
+on mouseUp
+fnOneParam "abc"
+ajouteCarte "xyz","abc","def"
+put double(2) && "expected 4"
+put add2(2,3) && "expected 5"
+fnNoParam
+end mouseUp
+
+--function with 1 param
+function double param
+return param * 2
+end double
+
+-- function with 2 params
+function add2 param1, param2
+return param1 + param2
+end add2
+
+--function sans paramètre et sans return
+on fnNoParam
+put "Fonction fnNoParam"
+end fnNoParam
+
+--function sans return mais attendant un paramètre
+on fnOneParam param
+put "Fonction fnNoParam" && param
+end fnOneParam
+
+</pre>
+
+
+
+

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fichiers (lecture et écriture)</title>
+</head>
+<body>
+    <h1>Fichiers (lecture et écriture)</h1>
+
+    <p>Les fichiers créés sont directement utilisables par un éditeur de texte. Dans RESEDIT, creator et type sont respectivement ttxt et TEXT. </p>
+
+    <pre>
+      on mouseUp
+      --générer un fichier avec ce script
+      put "script.txt" into newfile
+      <bold style="font-size: 120%;background:yellow;">open file</bold> newfile
+      --write bg field "about" to file newfile
+      <bold style="font-size: 120%;background:yellow;">write</bold> the script of me <bold style="font-size: 120%;background:yellow;">to </bold> newfile
+      <bold style="font-size: 120%;background:yellow;">close </bold> newfile
+      
+      --relire le fichier
+      put "script.txt" into filename
+      <bold style="font-size: 120%;background:yellow;">open </bold> filename
+      
+      if the result is not empty then
+        answer "Impossible d'ouvrir le fichier" && filename
+        exit mouseUp
+      end if
+      
+      -- lit tout le fichier
+      <bold style="font-size: 120%;background:yellow;">read from </bold> filename <bold style="font-size: 120%;background:yellow;">until end</bold>
+      <bold style="font-size: 120%;background:yellow;">put it</bold> into cd field "liste"
+      <bold style="font-size: 120%;background:yellow;">close </bold> filename
+    end mouseUp      
+    </pre>
+       
+</body>
+</html>

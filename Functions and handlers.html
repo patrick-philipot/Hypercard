@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions and handlers</title>
+</head>
+<body>
+    <h1>Functions and handlers</h1>
+    <h2>Fonction avec 1 paramètre</h2>
+    <pre>
+        --function with 1 param
+        function double param
+          return param * 2
+        end double
+
+        -- appel
+        on mouseUp
+          put double(2) && "expected 4"
+        end mouseUp
+    </pre>
+
+    <h2>Fonction avec 2 paramètres</h2>
+    <pre>
+        -- function with 2 params
+        function add2 param1, param2
+          return param1 + param2
+        end add2   
+        
+        -- appel
+        put add2(2,3) && "expected 5"
+    </pre> 
+
+    <h2>Handler sans paramètre</h2>
+    <pre>
+      on fnNoParam
+        put "Fonction fnNoParam"
+      end fnNoParam
+      
+      --appel
+      fnNoParam
+    </pre>
+
+    <h2>Handler avec 3 paramètres</h2>
+<pre>
+        on ajouteCarte num,title,lu
+          put title && num && lu
+        end ajouteCarte
+
+        --appel
+        ajouteCarte "xyz","abc","def"
+</pre>
+
+<h2>Comment quitter une fonction ? EXIT</h2>
+<pre>
+    on mouseUp
+        --générer un fichier avec ce script
+        put "script.txt" into newfile
+        open file newfile
+        write the script of me to file newfile
+        close file newfile
+        
+        --relire le fichier
+        put "script.txt" into filename
+        open file filename
+        
+        if the result is not empty then
+            answer "Impossible d'ouvrir le fichier" && filename
+            <bold style="font-size: 120%;background:yellow;">exit mouseUp</bold>
+        end if
+        
+        -- lit le fichier ligne par ligne
+        put empty into cd fld "liste"
+        read from file filename until return
+        put it into line
+        put 1 into cpt
+        
+        repeat until line is empty
+            add 1 to cpt
+            put line after cd fld "liste"
+            read from file filename until return
+            put it into line
+        end repeat
+        
+        close file filename
+        answer (cpt && "lignes ont été lues")        
+    end mouseUp
+  </pre>
+
+  <h2>Comment inverser une condition ? NOT</h2>
+  <pre>
+    -- remplace le texte c par le texte r dans la chaine p
+    function remplace p, c, r
+    <bold style="font-size: 120%;background:yellow;">if not (p contains c) then</bold>
+        answer("Impossible" && quote & c & quote && "non trouvé")
+        return "erreur"
+      end if
+      
+      put empty into value
+      put offset(c, p) into o
+      put length(c) into lc
+      put length(p) into lp
+      put char 1 to (o - 1) of p into value
+      put r after value
+      put char (o+lc) to lp of p after value
+      
+      return value
+    end remplace
+    
+  </pre>
+    
+</body>
+</html>

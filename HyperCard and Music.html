@@ -1,0 +1,99 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>HyperCard and Music</title>
+</head>
+
+<h2>HyperCard and Music</h2>
+
+
+
+<img src="HyperCard%20and%20Music_files/music4.gif"><p>
+
+The play command can take a digitised sound and play notes. The notes can
+vary in pitch, length and tempo so that quite passable tunes can be constructed
+using a digitised sound. The beauty of this is that long tunes take up only a
+tiny space. On my "101 Australian Folk Songs" stack all the words and all the
+music can still fit on one floppy disk! The drawback is that the tunes sound a
+bit mechanical. Here's a sample tune called Brisbane Ladies</p><p>
+
+</p><form>
+<textarea rows="6" cols="70" wrap="off">play Fiddle tempo 200  "59q 64q 64q 59q 64h 64e 66e 67q 66q 64q 64e 62e 59q"
+play Fiddle tempo 200  "59q 64q 64q 59q 64h 64e 66e 67q 69q 67q 66h"
+play Fiddle tempo 200  "66e 66e 67q 66q 67q 69q 67q 69q 71e 69e 67q 64q 64e 62e 59q"
+play Fiddle tempo 200  "71e 69e 67q 64q 64q 64e 62e 59q 57q 59q 64q 63q 64h"
+</textarea>
+</form><p>
+
+<img src="HyperCard%20and%20Music_files/music3.gif"></p><p>
+Copy the script and paste into a button on your stack. Of course you need a
+sound resource called Fiddle or else you can try it by replacing Fiddle in the
+script with Harpsichord which is build in to hyperCard.</p><p>
+</p><p>
+Instead of numbers you can use the names of the note so that 60 is middle C and
+61 would be C#. I find the numbers are better for 2 reasons </p><p>
+Firstly if you use the note letter system you have to specify octave 
+changes (c3 is middle C, c4 the octave above and c2 the octave below</p><p>
+Secondly if you use the number system you can change the pitch of a
+tune by adding or subtracting the same whole number from each note in the
+tune.</p><p>
+</p><p>
+The length of each note is specified by the letter following the note as
+shown below</p><p>
+<img src="HyperCard%20and%20Music_files/sound10.gif"></p><p>
+
+</p><h3>Using SoundChannel</h3>
+In the latest version of HyperCard the <b>soundChannel</b> property 
+reflects the channel through which sound is played. By immediately 
+switching channels and playing new sounds, several sounds can be played 
+nearly simultaneously as in this example<p>
+
+</p><form>
+<textarea rows="20" cols="40" wrap="off">on mouseUp
+  put the soundChannel into chan
+  play harpsichord c e g
+  wait 2 seconds
+  set the soundChannel to 1
+  play harpsichord c2
+  set the soundChannel to 2
+  play harpsichord e3
+  set the soundChannel to 3
+  play harpsichord g
+  set the soundChannel to 4
+  play harpsichord e2
+  set the soundChannel to 5
+  play harpsichord g4
+  set the soundChannel to 6
+  play harpsichord c5
+  set the soundChannel to chan
+end mouseUp
+</textarea>
+</form><p>
+
+</p><h3>Script for a Button to play Random Music</h3>
+Copy this script and paste it into a button in your stack. When you 
+click on it it will play random music till you click again! It plays a 
+pentatonic music (only the black notes). If you have a different sound 
+resource in your stack just replace the word harpsichord in the script 
+with the name of the new sound<p>
+
+</p><form>
+<textarea rows="15" cols="70" wrap="off">on mouseUp
+  put "harpsichord" into instrument
+  put "51 54 56 58 61 63 66 68 70 73 75 56 58 61 63 66 68 51 54 56" into notes
+  put "s e e e e e3 e e e e e e3 e s s s s s s t q h. w" into duration
+  put number of words in notes into num
+  put number of words in duration into dur
+  set hilite of me to true
+  repeat until the mouseClick
+    play instrument word random(num) of notes &amp; word random(dur) of duration
+    wait until the sound is done
+  end repeat
+  set hilite of me to false
+end mouseUp
+</textarea>
+</form><p>
+</p><hr>
+
+
+</td></tr></tbody></table>
+</body></html>

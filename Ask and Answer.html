@@ -1,0 +1,56 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>Ask and Answer</title>
+</head>
+
+<h2>Ask and Answer</h2>
+
+Ask and Answer are HyperCard commands that produce special dialog boxes.
+ They are useful for giving the feel of interactivity in a stack<p>
+<b>Answer</b> produces dialog boxes that require users to select from up to 3 buttons</p><p>
+<b>Ask</b> produces a dilaog box requiring the user to type a response</p><p>Make a button called ask and type the following script in it. Click on the
+button.</p><p>
+</p><p>
+<img src="Ask%20and%20Answer_files/hc35.gif"></p><p>
+
+</p><form>
+<textarea rows="5" cols="50" wrap="off">on mouseUp
+   ask "type favourite program"
+end mouseUp 
+</textarea>
+</form><p>
+
+<img src="Ask%20and%20Answer_files/hc36.gif"></p><p>
+</p><p>
+This is the Ask dialog box in its simplest form. Whatever you type in the text
+box is placed into the <b>It</b> container or variable when you click the OK
+button.</p><p>
+Make a button called Answer and put this script into it. Try it out.</p><p>
+</p><p>
+<img src="Ask%20and%20Answer_files/hc37.gif"></p><p>
+</p><form>
+<textarea rows="5" cols="50" wrap="off">on mouseUp
+    answer "open favourite program"
+end mouseUp 
+</textarea>
+</form><p>
+
+This is the simplest Answer dialog box. Often it is used as an alert, but it
+can allow users to make a choice of up to three buttons inside a small dialog
+box.</p><p>
+You can have up to 240 characters in the prompt text of an ask or answer dialog box</p><p>
+<img src="Ask%20and%20Answer_files/hc38.gif"></p><p>
+
+</p><form>
+<textarea rows="5" cols="60" wrap="off">on mouseUp
+    answer "text here" with "Maybe" or "Rubbish" or "True"
+end mouseUp
+</textarea>
+</form><p>
+
+
+  
+
+</p></td></tr></tbody></table>
+
+</body></html>

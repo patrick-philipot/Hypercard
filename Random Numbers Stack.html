@@ -1,0 +1,65 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>Random Numbers Stack</title>
+</head>
+
+<h2>Random Numbers Stack</h2>
+
+Random is a very useful HyperCard function. One common use is to be able
+ to set up maths problems that present different numbers each time the 
+problem is encountered<p>
+Make a new stack. </p><p>
+</p><p>
+<img src="Random%20Numbers%20Stack_files/random.gif"></p><p>
+The stack can be small as above. Create a button and name it <b>Random</b>.
+ Create a small rectangular field. You could set the text file in the 
+field to a larger font size, say 16, and maybe a different font. Clone 
+this field 5 times so you have 6 fields side by side. Fields are cloned 
+by clicking on them with the field tool selected and holding the mouse 
+down while you hold the <b>Option</b> key down and drag the new field to it's new position. </p><p><img src="Random%20Numbers%20Stack_files/clone.gif"></p><p>
+<br>Cloning a field is the same as copying and pasting but faster! It 
+also ensures that the fields are all the same size and have the same 
+settings. Notice the fields are numbered in the order of creation</p><p>
+
+Paste the following script into your "Random" button:</p><p><br>
+</p><form>
+<textarea rows="21" cols="100" wrap="off">on mouseUp
+  repeat with i = 1 to 6
+    put empty into cd fld i
+  end repeat
+  put empty into randNum
+  put 6 into uniqueNum
+  put 49 into selNum
+  put empty into theNum
+  repeat with i = 1 to selNum
+    put i into item i of theNum -- sets up list of items 1 to 49
+  end repeat
+  repeat with i = 1 to uniqueNum
+    put random(the number of items in theNum)into thisOne -- selects an item from list
+    put item thisOne of theNum &amp; "," after randNum
+    delete item thisOne of theNum -- removes the selected item from list
+  end repeat
+  repeat with i = 1 to 6
+    put item i of randNum into cd fld i
+  end repeat
+end mouseUp
+</textarea>
+</form><p>
+
+This script will generate 6 unique random numbers each time you click the "Random" button.</p><p>
+You could make more fields for more random numbers and change the 
+"sixes" in the script to the new number. Or you could change the 49 so 
+that number you choose to select the random numbers from is greater ot 
+smaller. Experiment with the script so you understand how it works. The <b>Commas</b> are used to separate (or delimit) the <b>items</b>. <b>randNum, uniqueNum, selNum, theNum and thisOne</b> are variables.</p><p>
+
+To clear the random numbers when you close the card put the following script in your card script</p><p>
+</p><form>
+<textarea rows="6" cols="40" wrap="off">on closeCard
+  repeat with i = 1 to 6
+    put empty into card fld i
+  end repeat
+end closeCard
+</textarea>
+</form><p> 
+
+</body></html>

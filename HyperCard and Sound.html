@@ -1,0 +1,82 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>HyperCard and Sound</title>
+</head>
+
+<h2>HyperCard and Sound</h2>
+<h2>Audio Palette</h2>
+For many years Macs have had built in sound recording so you easily 
+record and edit the sound you want to use in your stacks. The latest 
+versions of hyperCard
+have a built in sound recorder and editor called the Audio Palette. Make
+ sure
+that you have a the Audio Help stack among your hyperCard stacks. If 
+this stack
+is present you will find Audio and Audio Help as menu items under the 
+Edit menu
+of the menubar. <p>
+
+<img src="HyperCard%20and%20Sound_files/sound7.gif"></p><p>
+
+If you click on Audio the Audio Palette appears</p><p>
+
+<img src="HyperCard%20and%20Sound_files/sound8.gif"></p><p>
+
+To see the editing features of the Audio Palette click the Edit button. When
+you save a recorded sound using the Save button a button is made on your card</p><p>
+
+<img src="HyperCard%20and%20Sound_files/sound9.gif"></p><p>
+
+If you take a look at the script of this button you will find a very long and
+involved script. For playing the sound you have recorded you could reduce the
+script to 3 lines </p><p>
+</p><form>
+<textarea rows="5" cols="40" wrap="off">on mouseUp
+   play "guitar"
+end mouseUp
+</textarea>
+</form><p>
+
+If you had or made a sound resource called "how are you going" the button
+script would then be</p><p>
+</p><form>
+<textarea rows="5" cols="40" wrap="off">on mouseUp
+   play "how are you going"
+end mouseUp
+</textarea>
+</form><p>
+
+
+Using the play command you can play any digital sounds stored in the stack as a resource. Like all resources the sound
+resources can be moved from one stack to another using Power Tools.</p><p>
+
+<img src="HyperCard%20and%20Sound_files/sound3.gif"></p><p>
+
+With the latest versions of HyperCard you can also play sound stored in QuickTime movies, both digitised sound and MIDI files. </p><p>
+<img src="HyperCard%20and%20Sound_files/sound4.gif"></p><p>
+
+</p><h2>Speech and hyperCard</h2>
+<img src="HyperCard%20and%20Sound_files/sound11.gif"><p>
+HyperCard can read out text in a field if you have installed PlainTalk. You
+will also need to have the exstensions Speech Manager and MacinTalk Pro, and a
+folder for Voices in the system folder.</p><p>
+<img src="HyperCard%20and%20Sound_files/macintalk.gif"></p><p>
+Your Mac must have a 68020 chip or greater so you can not use speech on a Mac
+Plus or Classic.</p><p>
+
+Type these in your message box:</p><p>
+
+</p><form>
+<textarea rows="5" cols="50" wrap="off">speak "the talking mac" with female voice
+speak "the talking mac" with male voice
+speak "the talking mac" with voice otis
+</textarea>
+</form><p>
+Try this with a field of text</p><p>
+<b>speak cd fld 1</b></p><p>
+<img src="HyperCard%20and%20Sound_files/sound12.gif"></p><p>
+</p><hr>
+
+</td></tr></tbody></table>
+
+</body></html>

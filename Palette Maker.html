@@ -1,0 +1,145 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>Palette Maker</title>
+</head>
+<h2>Palette Maker Basics</h2>
+
+In HyperCard's Power Tools Stack you will find many useful tools. Build your own floating palette using <b>Palette Maker.</b><p>
+ 
+<img src="Palette%20Maker_files/palette1.gif"></p><p>
+
+The numbers on the steps below correspond to the numbers which appear in the
+upper left corners of the boxes on the palette card.</p><p>
+First open your Power Tools stack and select Palette Maker from the menu</p><p>
+1. Enter Palette Name: </p><p>
+Type the name of your palette (in this example xtras) in the space provided in box 1.</p><p>
+
+<img src="Palette%20Maker_files/palette3.htm"></p><p>
+
+2. Palette Workspace:</p><p>
+
+<img src="Palette%20Maker_files/palette2.htm"></p><p>
+
+Create artwork for your palette using HyperCard's built-in paint tools 
+or paste
+in bit-map art from elsewhere using the clipboard or scrapbook. Here you
+ draw the 5 boxes as shown and name each one. Once you have finished the
+ boxes create 5 buttons to fit inside them. All buttons end up as 
+transparent in a palette. Here are the scripts for the buttons. The 
+second line of each button's script is used as the message the palette 
+will pass when the button is depressed in the palette. Copy and paste 
+the scripts from the list below</p><p>
+
+</p><form>
+<textarea rows="5" cols="40" wrap="off">on mouseUp
+ put "The Time is "&amp;&amp;the time
+end mouseUp
+</textarea>
+</form><p>
+
+</p><form>
+<textarea rows="5" cols="40" wrap="off">on mouseUp
+ put "Today's Date is "&amp;&amp;the short date
+end mouseUp
+</textarea>
+</form><p>
+
+</p><form>
+<textarea rows="5" cols="40" wrap="off">on mouseUp
+ flash 3
+end mouseUp
+</textarea>
+</form><p>
+
+</p><form>
+<textarea rows="5" cols="40" wrap="off">on mouseUp
+ play boing "62w 55h 50q"
+end mouseUp
+</textarea>
+</form><p>
+
+</p><form>
+<textarea rows="5" cols="55" wrap="off">on mouseUp
+ put "You are using HyperCard version "&amp;&amp;the version
+end mouseUp
+</textarea>
+</form><p>
+
+
+<img src="Palette%20Maker_files/palette2a.gif"></p><p>
+
+In a palette you are limited to one line scripts, however, if you should
+ need more than a line of script to be executed when a button is 
+depressed; create a handler, put it in the stack or background script 
+and then simply put the handler's name in the second line of the 
+button's script. </p><p>
+
+3. Choose Window Style:</p><p>
+Allows you to decide whether the palette will have its name displayed in the
+drag region or not. Just click on your choice and it will hilite.</p><p>
+
+<img src="Palette%20Maker_files/palette3b.gif"></p><p>
+
+4. Choose Hilite type:</p><p>
+Inverse hilite: allows you to specify whether buttons in the palette will be
+inverted (blackened) when depressed. Framed hilite: allows you to specify
+whether buttons in the palette will be framed when depressed.    </p><p>
+
+Remain hilited: When not enabled buttons in the palette will be hilited
+momentarily (like autoHilite), and when enabled they will retain their
+highlight (like radio buttons).</p><p>
+
+5. Create Palette:</p><p>
+Create Palette: takes your artwork and buttons and turns them into a palette.</p><p>
+
+<img src="Palette%20Maker_files/palette1.gif"></p><p>
+Now you can test your new palette by clicking on each of the buttons</p><p>
+
+6. Install Palette...:    </p><p>
+Install Palette: asks you which stack you would like a copy of this palette
+installed in.</p><p>
+
+7. Misc. Palette Instructions:</p><p>
+New Palette Card: creates a new palette card.</p><p>
+
+Delete Palette: deletes the current palette from this stack or another if you
+wish.</p><p>
+
+Show Palette: displays  the palette you specify  from this or another stack in
+the center of the card or where you would like.</p><p>
+
+<img src="Palette%20Maker_files/palette4.gif"></p><p>
+
+Show Commands: displays a list of all the commands from the palette you specify
+in this or another stack.  You can also highlight the button which corresponds
+to a particular command. If the palette is from the current card you will be
+given the option to edit the scripts associated with.</p><p>
+
+<img src="Palette%20Maker_files/palette5.gif"></p><p>
+
+<img src="Palette%20Maker_files/palette6.htm"></p><p>
+
+More about the Palette Maker:</p><p>
+The Palette Maker consists of two XCMDs, the "Palette" XCMD which is attached
+to HyperCard itself and the "NewPalette" XCMD which is attached to this stack.
+The NewPalette XCMD creates a "PLTE" and a "PICT" resource for each palette. </p><p>
+
+<img src="Palette%20Maker_files/palette7.htm"></p><p>
+
+The PICT is the artwork for the palette and the PLTE is a code description of
+the palette including the palette's commands. The Palette XCMD is responsible
+for finding and uniting the "PICT" and "PLTE" resources to display the
+palette.</p><p>
+
+Warnings: The Palette XCMD will not display two palettes with the same name at
+the same time. Several palettes can be open at the same time as long as they
+have different names.</p><p>
+
+For best results, do not create palettes with the same name using 
+Palette Maker. The NewPalette XCMD will delete resources with the same
+names as the ones it is creating.</p><p>
+
+If you want a colour palette simply replace the black and white PICT
+resource with a colour one.</p>
+
+</body></html>

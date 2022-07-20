@@ -1,0 +1,112 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>Scripting a Field</title>
+</head>
+
+<h2>Scripting a Field</h2>
+
+Make a new field, and type these scripts in it<p>
+</p><p>
+<img src="Scripting%20a%20Field_files/hc41.gif"></p><p>
+
+You can select the lines below and copy and paste them straight into your field</p><p>
+
+</p><form>
+<textarea rows="14" cols="70" wrap="off">beep 3
+flash 3
+play boing
+play harpsichord
+play harpsichord "60q 62e"
+play harpsichord "60q 62e 64h. 66s 67h 60w"
+ask "type your choice"
+answer "select choice" with "HyperCard" or "Supercard" or "Neither"
+answer "Today is:" &amp;&amp; the date
+answer "Today is:" &amp;&amp; the long date
+answer "Its:" &amp;&amp; the time &amp;&amp; item1 of the long date
+</textarea>
+</form><p>
+
+Type the script below into the field script and make sure that the field is
+locked. </p><p>
+
+</p><form>
+<textarea rows="7" cols="50" wrap="off">on mouseUp 
+   select the clickLine
+     put word 2 of the clickLine into lino
+   do line lino of cd fld 1
+end mouseUp
+</textarea>
+</form><p>
+
+
+Now try it out. </p><p>
+The key to this setup is these lines in the field script</p><p>
+</p><p>
+<b>put word 2 of the clickLine into lino<br>
+do line lino of cd fld 1</b><br>
+</p><p>
+<b>lino</b> is a variable (a temporary container in this case)</p><p>
+ </p><p>
+<b>the clickLine</b> is a function peculiar to fields. It returns the line
+number and the field name containing the text in a field last clicked on by the
+user.</p><p>
+</p><p>
+<b>do</b> is a keyword that carries out a HyperTalk statement</p><p>
+</p><p>
+<b>select the clickLine</b> does the highlighting when the text is clicked
+on.</p><p>
+</p><p>
+<img src="Scripting%20a%20Field_files/hc43.gif"></p><p>
+</p><p>
+Fields that do things when you click on the individual lines are often used in
+HyperCard for such things as indexes. </p><p>
+For instance if you put all the card names of a stack in such a field they can
+be used to take the user to each card as they select its name from the index
+field.</p><p>
+</p><p>
+Make a button under the field and type this script into it</p><p>
+
+</p><form>
+<textarea rows="5" cols="40" wrap="off">on mouseUp
+  do cd fld 1
+end mouseUp
+</textarea>
+</form><p>
+
+When it is clicked the <b>do</b> keyword runs through the contents of the field
+statement  by statement. The statements have to be separated by a return i.e
+they must be on separate lines. The statements can be in any container, a field
+, or a variable and they act just like script would that was made up of the
+same lines or statements.</p><p>
+
+</p><h2>More about Answer</h2>
+The statement on line 8 of the field is an example of using Answer with three
+choices. When the user selects one of the buttons the message passed to
+hyperCard can then be made use of. Make a button and type this script into it.
+<p>
+</p><form>
+<textarea rows="8" cols="70" wrap="off">on mouseUp
+ answer "Select Choice" with "HyperCard" or "Supercard" or "Neither"
+ if it is "HyperCard" then beep 2
+ if it is "Supercard" then play boing "45q"
+ if it is "Neither" then put "Chicken"
+end mouseUp
+</textarea>
+</form><p>
+
+Notice that the last choice is a button with double line around it. This is the
+default button that is activated if the user presses the return key.</p><p>
+</p><p>
+<img src="Scripting%20a%20Field_files/hc45.gif"></p><p>
+</p><p>
+In this lesson some of the statements uses HyperCard's <b>play</b> command.
+This command plays prerecorded sounds as musical notes at varying tempos,
+pitches and lengths. HyperCard includs harpsichord, boing and flute as already
+installed sound resources.
+</p><p>
+<img src="Scripting%20a%20Field_files/hc46.gif"></p><p>
+ <b>
+
+</p></td></tr></tbody></table>
+
+</body></html>

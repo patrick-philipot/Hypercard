@@ -1,0 +1,127 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>Scripting a Button</title>
+</head>
+
+<h2>Scripting a Button</h2>
+
+Create a new card on your stack. Check the number of fields and buttons by
+looking at Card Info.. and Bkgnd Info... under the Objects menu of the Menubar.
+Compare these with the first card. When you make a new card you keep the same
+Background and the background fields and background buttons, however, card objects and pictures are not
+copied to the new card.<p>
+</p><p>
+<img src="Scripting%20a%20Button_files/hc21.gif"></p><p>
+</p><p>
+If a bg field has its style set to shared text that text will be copied to each
+new card you make. The bg fields where the style is not shared text can have
+different text for each card in the stack.</p><p>
+</p><p>
+<img src="Scripting%20a%20Button_files/hc22.gif"></p><p>
+</p><p>
+The first lesson showed how to script buttons to hide and show fields. Button
+scripts can also change the name the button shows as well. </p><p>
+Make a new button named Show. </p><p>
+Open the Message Box (Command M) and type <b>set the name of btn show to
+hide</b></p><p>
+</p><p>
+<img src="Scripting%20a%20Button_files/hc23.gif"></p><p>
+</p><p>
+The ability to change the name of a button can be part of the hide and show
+script. Use Option Command Click on the button to access the script. Type in
+the following script. </p><p>
+</p><form>
+<textarea rows="10" cols="40" wrap="off">on mouseUp
+  if hide is in the short name of me
+    then
+      set name of me to "Show Something"
+    else
+      set name of me to "Hide Something"
+    end if
+end mouseUp
+</textarea>
+</form><p>
+
+Now the button name alternates between Hide and Show as we click it. By adding
+the scripts that were used to hide and show fields we can make a button that
+has a dual purpose. When it is named Hide it will hide a number of fields and
+reset its name to Show. The next time it is clicked it will reset its name to
+Hide and show all the fields. It looks complicated but it is so useful that it
+is worth keeping a sample of it in a button library so it can be put to use
+when needed.</p><p>
+
+</p><h2>Script for dual purpose Hide/Show button</h2>
+
+<form>
+<textarea rows="16" cols="50" wrap="off">on mouseUp
+  if hide is in the short name of me
+  then
+    set name of me to Show
+    repeat with i = 3 to the number of bg flds
+      hide fld i
+    end repeat
+  else
+    repeat with i = 3 to the number of bg flds
+      show fld i
+    end repeat
+    set name of me to Hide
+  end if
+end mouseUp
+</textarea>
+</form><p>
+
+This script is an example of if...then...else construction. If ... then and if
+... then ... else help to make the program responsive to the user, so they are
+used in a lot of different places.</p><p>
+</p><p>
+Another way of hiding and showing fields and buttons is to use a property they
+have called <b>visible</b>. Try these out in the Message Box.</p><p>
+</p><p>
+<img src="Scripting%20a%20Button_files/hc25.gif"></p><p>
+</p><p>
+If the <b>visible</b> of a field is true then the <b>not visible</b> of the
+field would be false and vice versa. Hide field 3 and type <b>put the visible
+of field 3</b> in the Message Box and press return. Now try this.</p><p>
+</p><p>
+<img src="Scripting%20a%20Button_files/hc26.gif"></p><p>
+</p><p>
+Press return a few times to see the effect. Now we can adapt our Hide/Show
+script.</p><p>
+</p><p>
+</p><form>
+<textarea rows="12" cols="50" wrap="off">on mouseUp
+  repeat with i = 3 to number of fields
+    set visible of fld i to not visible of fld i
+  end repeat
+  if visible of fld 3 is true then
+    set name of me to Hide            
+  else
+    set name of me to Show           
+  end if
+end mouseUp
+</textarea>
+</form><p>
+
+
+The Menubar property visible can also be set and assertained. Type <b>set the
+visible of menubar to false</b> in the Message Box. Then type <b>put the
+visible of menubar</b>. </p><p>
+</p><p>
+Cards and Backgrounds have a similar property <b>showPict</b>. Make a button
+with the following script and try it out on a card with a picture.</p><p>
+</p><p>
+
+</p><form>
+<textarea rows="5" cols="60" wrap="off">on mouseUp
+  set showPict of this card to not showPict of this card
+end mouseUp
+</textarea>
+</form><p>
+
+
+
+  
+
+</p></td></tr></tbody></table>
+
+</body></html>
