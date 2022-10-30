@@ -7,6 +7,19 @@
     <title>Linking Stacks</title>
 </head>
 <body>
+    <h1>Using Stacks</h1>
+    <p>La commande "start using stack stack_name" permet d'utiliser les scripts de la stack désignée, notamment le script de ses handlers. La commande "stop using stack stack_name" annule cette action.
+    La commande "stacksInUse" retourne la liste des stacks chargées par "start using stack ..."</p>
+    <pre>  
+    --EXEMPLE DE CODE
+    put the stacksInUse into usedStacks
+    -- retourne par exemple
+    -- "HD80FR:HyperCard 2.4:HyperCard Stacks:Audio Help"
+    if usedStacks contains "Audio Help" then
+        -- inutile de donner le chemin complet
+        stop using stack "Audio Help"
+    end if
+</pre>
     <h1>Linking Stacks</h1>
     <p>Extrait du livre : <br><img src="./Images/book1.jpg" alt=""></p>
     <img src="./Images/Linking_Stacks.png" alt="">
