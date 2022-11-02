@@ -20,6 +20,12 @@ ul li {
   color: darkblue;
   margin: 5px;
 }
+
+.card {
+  padding: 1em;
+  border-radius: 10px;
+  border: black solid 1px;
+}
     </style>
 </head>
 <body>
@@ -43,8 +49,17 @@ ul li {
     <li><a href="./Using HyperCard.html">Using HyperCard</a></li>
     <li><a href="./Variables.html">Variables</a></li>
     </ul>
-    <h2>Créer un disque blank avec DD</h2>
-    <pre>dd if=/dev/zero of=my_image.dsk count=14336</pre>
-<p>This creates a 7 Megabyte file, named 'my_image.dsk', in the current directory. 'count' is the number of 512 byte blocks. </p>
+    <div class="card">
+      <h2>Créer un disque blank avec DD</h2>
+      <pre>dd if=/dev/zero of=my_image.dsk count=14336</pre>
+  <p>This creates a 7 Megabyte file, named 'my_image.dsk', in the current directory. 'count' is the number of 512 byte blocks. </p>
+  <img src="./Images/DDsyntaxStack.png" alt="ddSyntaxStack">
+    </div>
+    
+    <div class="card">
+      <h2>Créer un disque sous System 7.1 français</h2>
+  <p><a href="./InstallSystem7.1FR.html">Ouvrir la page</a></p>
+
+    </div>
 </body>
 </html>
