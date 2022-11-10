@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Générateur de syntaxe pour créateur de disque .DSK</h1>
+
+<form>
+  <label for="fname">Nom du disque (sans .dsk)</label>
+  <input type="text" id="fname" name="fname" value="DK800ko">
+  <label for="fsize">Taille</label>
+  <input type="text" id="fsize" name="fsize" value="800" size="4">
+  <label for "radio">Unité : </label>
+  <label for "mo">Mo</label>
+  <input type="radio" id="mo" name="unit" value="Mo">
+  <label for "ko">Ko</label>
+  <input type="radio" id="ko" name="unit" value="Ko" checked="checked">
+  <button type="button" onClick="syntax2clipboard()"">Calculer</button>
+</form> 
+
+
+<div class="afficheur">
+  <h2>Syntaxe pour Mac OS</h2>
+  <p id="afficheur"></p>
+  <p>Sous MacOS, l'utilitaire DD permet de générer un tel disque.
+    <br>Example avec une disquette de 800 Ko<br>dd if=/dev/zero of=minivMac.dsk count=1600</p>
+    <p>Count représente la taille en nombre de blocs de 512 octets</p>
+</div>
+
+  
+  <div class="afficheur">
+    <h2>Syntaxe pour Windows</h2>
+    <p id="afficheur2"></p>
+    <p>Sous Windows, l'utilitaire FSUtil est à employer.
+      <br>Example avec une disquette de 800 Ko<br>fsutil file createnew DK800ko.dsk 819200</p>
+      <p>La taille est donnée en octets</p>
+</div>
+
+
+<script>
+  console.log("Script loaded")
+  function syntax2clipboard() {
+    hdName = document.querySelector("#fname").value
+    hdSize = document.querySelector("#fsize").value
+    hdUnit = document.querySelector('input[name="unit"]:checked').value
+    syntax = document.querySelector("#afficheur")
+    syntax2 = document.querySelector("#afficheur2")
+
+    
+    blocks = 2
+    if (hdUnit === "Mo") {
+      blocks = 2048
+    }
+    blocks *= hdSize
+    
+    // console.log(hdName, hdSize, hdUnit, blocks)
+
+    syntaxText = `dd if=/dev/zero of=${hdName}.dsk count=${blocks}`
+    syntax.innerText = syntaxText
+    navigator.clipboard.writeText(syntaxText)
+    
+    // syntaxe pour Windows
+    bytes = blocks * 512
+    syntaxTextWin = `fsutil file createnew ${hdName}.dsk ${bytes}`
+    syntax2.innerText = syntaxTextWin
+
+
+  }
+</script>
+</body>
+</html>
